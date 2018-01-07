@@ -8,7 +8,7 @@ The software also has TOR capabilities if you are getting blocked for the amount
 # How to run:
 To run Scraperbin just drop a shell and start it with python (do'h)
 ```
-> python scraperbin.py
+> python scrapebin.py
 ```
 
 # How it looks:
