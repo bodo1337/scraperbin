@@ -67,7 +67,6 @@ def get_raw_data(bin_url):
 	downloaded_data = urllib2.urlopen('http://pastebin.com/raw/' + bin_url)
 	print "[system] Load {0} - Success!".format('http://pastebin.com/raw/' + bin_url)
 	return downloaded_data.read()
-	return "testdata"
 
 
 
