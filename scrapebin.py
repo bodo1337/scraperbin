@@ -45,7 +45,7 @@ def get_size(start_path = '.'):
 def get_lasts_bin():
 	pastebin_list = []
 	start_read = False
-	downloaded_data  = urllib2.urlopen('http://pastebin.com/')
+	downloaded_data  = urllib2.urlopen('http://pastebin.com/archive')
 	print "[system] Load pastebin.com - Success!"
 	for line in downloaded_data:
 		if start_read:
@@ -56,9 +56,9 @@ def get_lasts_bin():
 					# Tenemos la informacion, almacenar
 					pastebin_list.append(href_info.split('/')[1])
 
-			if "</ul>" in line:
+			if "</div>" in line:
 				start_read = False
-		if "<div id=\"menu_2\">" in line:
+		if "<div style=\"padding: 0 0 10px 0\">" in line:
 			# Comenzamos, leamos.
 			start_read = True
 	return pastebin_list
@@ -67,9 +67,10 @@ def get_raw_data(bin_url):
 	downloaded_data = urllib2.urlopen('http://pastebin.com/raw/' + bin_url)
 	print "[system] Load {0} - Success!".format('http://pastebin.com/raw/' + bin_url)
 	return downloaded_data.read()
+	return "testdata"
 
-	
-			
+
+
 def main():
 	lasts_bin = get_lasts_bin()
 	for bins in lasts_bin:
